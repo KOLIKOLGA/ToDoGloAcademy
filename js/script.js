@@ -39,16 +39,15 @@ const render = function () {
 
         if (i === item.text) {
           toDoData.splice(i, 1);
-          //localStorage.removeItem("todo");
         }
-
-        localStorage.setItem("todo", JSON.stringify(toDoData));
         render();
       }
     );
   });
   localStorage.setItem("todo", JSON.stringify(toDoData));
 };
+
+render();
 
 toDoControl.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -65,5 +64,3 @@ toDoControl.addEventListener("submit", function (event) {
   localStorage.setItem("todo", JSON.stringify(toDoData));
   render();
 });
-
-render();
