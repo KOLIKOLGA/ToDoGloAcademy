@@ -32,12 +32,7 @@ const render = function () {
       render();
     });
     li.querySelector(".todo-remove").addEventListener("click", () => {
-      if (index) {
-        toDoData.splice(index, 1);
-      }
-      if (index === 0) {
-        toDoData.splice(0, 1);
-      }
+      toDoData.splice(index, 1);
 
       localStorage.setItem("todo", JSON.stringify(toDoData));
       render();
@@ -56,7 +51,7 @@ toDoControl.addEventListener("submit", (event) => {
     completed: false,
   };
 
-  if (newToDo.text !== "") {
+  if (newToDo.text.trim() !== "") {
     toDoData.push(newToDo);
     headerInput.value = "";
   }
